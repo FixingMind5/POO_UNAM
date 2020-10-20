@@ -1,0 +1,1 @@
+classmates_names = //tbody/tr/td/a/text()
