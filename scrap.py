@@ -20,17 +20,18 @@ for form in browser.forms():
     print(form)
 
 browser.select_form(nr=0)
-browser.form["username"] = ""
-browser.form["password"] = ""
+browser.form["username"] = "316041931"
+browser.form["password"] = "20001214"
 
 browser.submit()
 
-required_page = browser.open("https://sea.acatlan.unam.mx/user/index.php?page=0&perpage=5000&contextid=190695&id=2099&newcourse=0").read()
+required_page = browser.open(
+    "https://sea.acatlan.unam.mx/user/index.php?contextid=190699&id=2100&perpage=5000").read()
 parsed = html.fromstring(required_page)
 classmates_names = parsed.xpath(CLASSMATES_NAMES_XPATH)
 cleaned_names = [" ".join(name.split(" ")[1:]) for name in classmates_names]
 
-with open("names.txt", "w", encoding="utf-8") as file:
+with open("names2.txt", "w", encoding="utf-8") as file:
     for name in cleaned_names:
         file.write(f"{name}\n")
 
